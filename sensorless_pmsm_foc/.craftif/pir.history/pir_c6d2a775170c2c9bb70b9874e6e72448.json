@@ -1,0 +1,1029 @@
+{
+  "schema_version": "2.1.0",
+  "id": "pir_sensorless_pmsm_foc",
+  "revision": "c6d2a775170c2c9bb70b9874e6e72448",
+  "provenance": {
+    "project_path": "C:\\Users\\Neeti Poonia\\Downloads\\FirmGen v0.4.1 Projects\\motorcontrol\\sensorless_pmsm_foc",
+    "chat_id": "d6dd90a3-c72c-4895-9bc6-5f91d47fa281",
+    "revision": "c6d2a775170c2c9bb70b9874e6e72448",
+    "generated_at_ms": 1791813920441,
+    "analyzer_version": "pir_maker-static-0.13.0",
+    "analyzed_files": [
+      "CMakeLists.txt",
+      "Core/Inc/main.h",
+      "Core/Inc/stm32g4xx_hal_conf.h",
+      "Core/Inc/stm32g4xx_it.h",
+      "Core/Inc/stm32g4xx_nucleo_conf.h",
+      "Core/Src/main.c",
+      "Core/Src/stm32g4xx_hal_msp.c",
+      "Core/Src/stm32g4xx_it.c",
+      "Core/Src/system_stm32g4xx.c",
+      "firmware/app/app.c",
+      "firmware/app/app.h",
+      "firmware/bsp/board.c",
+      "firmware/bsp/board.h",
+      "firmware/configs/app_config.h",
+      "firmware/configs/build_config.h",
+      "firmware/configs/feature_config.h",
+      "firmware/configs/platform_config.h",
+      "firmware/interfaces/motor_io.c",
+      "firmware/interfaces/motor_io.h",
+      "firmware/modules/foc/foc.c",
+      "firmware/modules/foc/foc.h",
+      "firmware/modules/motor/motor_control.c",
+      "firmware/modules/motor/motor_control.h",
+      "firmware/osal/osal.h",
+      "firmware/platforms/stm32/motor_hw.c",
+      "firmware/platforms/stm32/motor_hw.h",
+      "firmware/platforms/stm32/osal_stm32.c",
+      "firmware/utils/helpers/helpers.c",
+      "firmware/utils/helpers/helpers.h",
+      "firmware/utils/logger/logger.c",
+      "firmware/utils/logger/logger.h"
+    ],
+    "file_hashes": {
+      "firmware/modules/foc/foc.h": "c8c8c82c45bf47000dece4c501f61dbb",
+      "Core/Inc/stm32g4xx_nucleo_conf.h": "ff84cde17dec523deeddd2c1b31f0fed",
+      "firmware/platforms/stm32/motor_hw.c": "024f5873ee489f049f88c97ae21fef4b",
+      "firmware/bsp/board.c": "e630056f89563be97755fb3703f3a541",
+      "firmware/interfaces/motor_io.h": "91dc8b0c04a0ecbf96e653db07d8b01f",
+      "firmware/platforms/stm32/motor_hw.h": "46616a0d321e12a1b88ea4a50a3969c1",
+      "Core/Inc/main.h": "42e7c5411bf0f6c97159270371ff9e50",
+      "firmware/osal/osal.h": "dd39c75f6d32387024f15de8db231c0d",
+      "firmware/app/app.c": "c5cd23bc6e36b24ff06428a587bc1378",
+      "Core/Src/stm32g4xx_hal_msp.c": "3f78c94c9052bed8232b519f6aafc66a",
+      "firmware/platforms/stm32/osal_stm32.c": "49fbc98c36a424680e3d15c2c551c671",
+      "firmware/utils/helpers/helpers.c": "914568ab7415fec17e74f306cbb5ae09",
+      "Core/Src/main.c": "1fdeee17342449344833bf7a9d476f1d",
+      "firmware/modules/foc/foc.c": "5b835817e0293f8516541318c4ad9e38",
+      "firmware/utils/logger/logger.h": "642efceba068f0cfa4a70d8ce56bbd82",
+      "firmware/configs/feature_config.h": "08ef51c6dfb8aa157bd736ea8388e0ba",
+      "firmware/configs/platform_config.h": "010b01144dbd2d3fb63f3053b158ab7a",
+      "firmware/utils/logger/logger.c": "a0aa546944c77a82f438514b1f38d8cc",
+      "firmware/configs/build_config.h": "dd997e9a0a461df28c370a61963fd7e5",
+      "firmware/utils/helpers/helpers.h": "ec8b635b7e5b55f8aeb8f47c3ff34312",
+      "firmware/interfaces/motor_io.c": "489f3a47bda47dcd93838b96226fbb8c",
+      "firmware/modules/motor/motor_control.h": "aa0473ee9177421dc4c6bb643a34ea7d",
+      "Core/Inc/stm32g4xx_hal_conf.h": "4160be8a5a503da02e825462e8d96369",
+      "CMakeLists.txt": "13419086e4dc963b944cc58ac63b2c91",
+      "Core/Inc/stm32g4xx_it.h": "3a39a95aa4de8889a628bb562ef97668",
+      "Core/Src/stm32g4xx_it.c": "eb046391a776f94d8dfc31f819d123eb",
+      "Core/Src/system_stm32g4xx.c": "2f1a41b4752e2b5c56e4af094b97a4b3",
+      "firmware/configs/app_config.h": "fb62b6ba18161410c4ad4e8bfff3a645",
+      "firmware/bsp/board.h": "7635d9fc24402de5a0b4294597b2594e",
+      "firmware/modules/motor/motor_control.c": "37606e739780a91956d4d67679dd08d4",
+      "firmware/app/app.h": "ebc6cfe87fb8e2ab299633dd7a067f3b"
+    },
+    "board_id": "NUCLEO-G431RB",
+    "target_chip": null,
+    "config_hash": null,
+    "feature_flags": "mode=hybrid;refine=true"
+  },
+  "approval": {
+    "status": "stale"
+  },
+  "nodes": [
+    {
+      "id": "boot",
+      "node_type": "system_init",
+      "label": "Boot / app_main",
+      "properties": {
+        "target": "stm32"
+      },
+      "source_refs": [
+        {
+          "file": "Core/Src/main.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "c6d2a775170c2c9bb70b9874e6e72448"
+      },
+      "ownership": {
+        "primary_files": [
+          "Core/Src/main.c"
+        ]
+      },
+      "editable_fields": [],
+      "layer": "system",
+      "ai_summary": "Bootstraps firmware startup and initializes core subsystems.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "gpio_output_pb13",
+      "node_type": "gpio_output",
+      "label": "PB13",
+      "properties": {
+        "pin": "PB13"
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/stm32/motor_hw.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "c6d2a775170c2c9bb70b9874e6e72448"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/stm32/motor_hw.c"
+        ]
+      },
+      "editable_fields": [],
+      "layer": "physical",
+      "ai_summary": "Drives a digital output signal.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "gpio_output_pa5",
+      "node_type": "gpio_output",
+      "label": "PA5",
+      "properties": {
+        "pin": "PA5"
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/stm32/motor_hw.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "c6d2a775170c2c9bb70b9874e6e72448"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/stm32/motor_hw.c"
+        ]
+      },
+      "editable_fields": [],
+      "layer": "physical",
+      "ai_summary": "Drives a digital output signal.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "gpio_input_pa11",
+      "node_type": "gpio_input",
+      "label": "PA11",
+      "properties": {
+        "pin": "PA11"
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/stm32/motor_hw.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "c6d2a775170c2c9bb70b9874e6e72448"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/stm32/motor_hw.c"
+        ]
+      },
+      "editable_fields": [],
+      "layer": "physical",
+      "ai_summary": "Reads a digital input signal.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "gpio_input_pb12",
+      "node_type": "gpio_input",
+      "label": "PB12",
+      "properties": {
+        "pin": "PB12"
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/stm32/motor_hw.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "c6d2a775170c2c9bb70b9874e6e72448"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/stm32/motor_hw.c"
+        ]
+      },
+      "editable_fields": [],
+      "layer": "physical",
+      "ai_summary": "Reads a digital input signal.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "gpio_input_pc13",
+      "node_type": "gpio_input",
+      "label": "PC13",
+      "properties": {
+        "pin": "PC13"
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/stm32/motor_hw.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "c6d2a775170c2c9bb70b9874e6e72448"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/stm32/motor_hw.c"
+        ]
+      },
+      "editable_fields": [],
+      "layer": "physical",
+      "ai_summary": "Reads a digital input signal.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "uart_device_usart2",
+      "node_type": "uart_device",
+      "label": "USART2",
+      "properties": {
+        "port": 1,
+        "baud_rate": 115200
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/stm32/motor_hw.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "c6d2a775170c2c9bb70b9874e6e72448"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/stm32/motor_hw.c"
+        ]
+      },
+      "editable_fields": [
+        "baud_rate"
+      ],
+      "layer": "physical",
+      "ai_summary": "Represents a UART peripheral with mapped serial pins.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_boot_uart_device_usart2_initializes",
+      "source_node_id": "boot",
+      "target_node_id": "uart_device_usart2",
+      "kind": "hardware",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/platforms/stm32/motor_hw.c",
+          "symbol": "USART2",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "initializes",
+      "validated": false
+    },
+    {
+      "id": "e_boot_initializes_gpio_output_pb13",
+      "source_node_id": "boot",
+      "target_node_id": "gpio_output_pb13",
+      "kind": "hardware",
+      "confidence": 0.94,
+      "source_refs": [
+        {
+          "file": "Core/Src/main.c",
+          "symbol": "main",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        },
+        {
+          "file": "firmware/app/app.c",
+          "symbol": "app_start",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        },
+        {
+          "file": "firmware/platforms/stm32/motor_hw.c",
+          "symbol": "hw_initialize",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "initializes",
+      "validated": false
+    },
+    {
+      "id": "e_boot_initializes_gpio_output_pa5",
+      "source_node_id": "boot",
+      "target_node_id": "gpio_output_pa5",
+      "kind": "hardware",
+      "confidence": 0.94,
+      "source_refs": [
+        {
+          "file": "Core/Src/main.c",
+          "symbol": "main",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        },
+        {
+          "file": "firmware/app/app.c",
+          "symbol": "app_start",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        },
+        {
+          "file": "firmware/platforms/stm32/motor_hw.c",
+          "symbol": "hw_initialize",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "initializes",
+      "validated": false
+    },
+    {
+      "id": "e_boot_initializes_gpio_input_pa11",
+      "source_node_id": "boot",
+      "target_node_id": "gpio_input_pa11",
+      "kind": "hardware",
+      "confidence": 0.94,
+      "source_refs": [
+        {
+          "file": "Core/Src/main.c",
+          "symbol": "main",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        },
+        {
+          "file": "firmware/app/app.c",
+          "symbol": "app_start",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        },
+        {
+          "file": "firmware/platforms/stm32/motor_hw.c",
+          "symbol": "hw_initialize",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "initializes",
+      "validated": false
+    },
+    {
+      "id": "e_boot_initializes_gpio_input_pb12",
+      "source_node_id": "boot",
+      "target_node_id": "gpio_input_pb12",
+      "kind": "hardware",
+      "confidence": 0.94,
+      "source_refs": [
+        {
+          "file": "Core/Src/main.c",
+          "symbol": "main",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        },
+        {
+          "file": "firmware/app/app.c",
+          "symbol": "app_start",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        },
+        {
+          "file": "firmware/platforms/stm32/motor_hw.c",
+          "symbol": "hw_initialize",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "initializes",
+      "validated": false
+    },
+    {
+      "id": "e_boot_initializes_gpio_input_pc13",
+      "source_node_id": "boot",
+      "target_node_id": "gpio_input_pc13",
+      "kind": "hardware",
+      "confidence": 0.94,
+      "source_refs": [
+        {
+          "file": "Core/Src/main.c",
+          "symbol": "main",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        },
+        {
+          "file": "firmware/app/app.c",
+          "symbol": "app_start",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        },
+        {
+          "file": "firmware/platforms/stm32/motor_hw.c",
+          "symbol": "hw_initialize",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "initializes",
+      "validated": false
+    }
+  ],
+  "layers": {
+    "physical": [
+      "gpio_output_pb13",
+      "gpio_output_pa5",
+      "gpio_input_pa11",
+      "gpio_input_pb12",
+      "gpio_input_pc13",
+      "uart_device_usart2"
+    ],
+    "runtime": [],
+    "network": [],
+    "system": [
+      "boot"
+    ]
+  },
+  "partitions": [],
+  "components": [],
+  "modules": [
+    {
+      "id": "Core_Inc",
+      "label": "Core/Inc",
+      "path": "Core/Inc",
+      "kind": "module",
+      "files": [
+        "Core/Inc/main.h",
+        "Core/Inc/stm32g4xx_hal_conf.h",
+        "Core/Inc/stm32g4xx_it.h",
+        "Core/Inc/stm32g4xx_nucleo_conf.h"
+      ]
+    },
+    {
+      "id": "Core_Src",
+      "label": "Core/Src",
+      "path": "Core/Src",
+      "kind": "module",
+      "files": [
+        "Core/Src/main.c",
+        "Core/Src/stm32g4xx_hal_msp.c",
+        "Core/Src/stm32g4xx_it.c",
+        "Core/Src/system_stm32g4xx.c"
+      ]
+    },
+    {
+      "id": "app",
+      "label": "app",
+      "path": "app",
+      "kind": "application",
+      "files": [
+        "firmware/app/app.c",
+        "firmware/app/app.h"
+      ]
+    },
+    {
+      "id": "bsp",
+      "label": "bsp",
+      "path": "bsp",
+      "kind": "board",
+      "files": [
+        "firmware/bsp/board.c",
+        "firmware/bsp/board.h"
+      ]
+    },
+    {
+      "id": "configs",
+      "label": "configs",
+      "path": "configs",
+      "kind": "configuration",
+      "files": [
+        "firmware/configs/app_config.h",
+        "firmware/configs/build_config.h",
+        "firmware/configs/feature_config.h",
+        "firmware/configs/platform_config.h"
+      ]
+    },
+    {
+      "id": "interfaces",
+      "label": "interfaces",
+      "path": "interfaces",
+      "kind": "module",
+      "files": [
+        "firmware/interfaces/motor_io.c",
+        "firmware/interfaces/motor_io.h"
+      ]
+    },
+    {
+      "id": "modules_foc",
+      "label": "modules/foc",
+      "path": "modules/foc",
+      "kind": "module",
+      "files": [
+        "firmware/modules/foc/foc.c",
+        "firmware/modules/foc/foc.h"
+      ]
+    },
+    {
+      "id": "modules_motor",
+      "label": "modules/motor",
+      "path": "modules/motor",
+      "kind": "module",
+      "files": [
+        "firmware/modules/motor/motor_control.c",
+        "firmware/modules/motor/motor_control.h"
+      ]
+    },
+    {
+      "id": "osal",
+      "label": "osal",
+      "path": "osal",
+      "kind": "abstraction",
+      "files": [
+        "firmware/osal/osal.h"
+      ]
+    },
+    {
+      "id": "platforms_stm32",
+      "label": "platforms/stm32",
+      "path": "platforms/stm32",
+      "kind": "platform",
+      "files": [
+        "firmware/platforms/stm32/motor_hw.c",
+        "firmware/platforms/stm32/motor_hw.h",
+        "firmware/platforms/stm32/osal_stm32.c"
+      ]
+    },
+    {
+      "id": "utils_helpers",
+      "label": "utils/helpers",
+      "path": "utils/helpers",
+      "kind": "utility",
+      "files": [
+        "firmware/utils/helpers/helpers.c",
+        "firmware/utils/helpers/helpers.h"
+      ]
+    },
+    {
+      "id": "utils_logger",
+      "label": "utils/logger",
+      "path": "utils/logger",
+      "kind": "utility",
+      "files": [
+        "firmware/utils/logger/logger.c",
+        "firmware/utils/logger/logger.h"
+      ]
+    }
+  ],
+  "module_deps": [
+    {
+      "from": "Core_Src",
+      "to": "Core_Inc",
+      "via": "include",
+      "file": "Core/Src/main.c",
+      "line": 20,
+      "symbol": "main.h"
+    },
+    {
+      "from": "Core_Src",
+      "to": "app",
+      "via": "include",
+      "file": "Core/Src/main.c",
+      "line": 21,
+      "symbol": "app.h"
+    },
+    {
+      "from": "Core_Src",
+      "to": "osal",
+      "via": "include",
+      "file": "Core/Src/stm32g4xx_it.c",
+      "line": 29,
+      "symbol": "osal.h"
+    },
+    {
+      "from": "Core_Src",
+      "to": "platforms_stm32",
+      "via": "include",
+      "file": "Core/Src/stm32g4xx_it.c",
+      "line": 26,
+      "symbol": "motor_hw.h"
+    },
+    {
+      "from": "app",
+      "to": "configs",
+      "via": "include",
+      "file": "firmware/app/app.c",
+      "line": 2,
+      "symbol": "app_config.h"
+    },
+    {
+      "from": "app",
+      "to": "interfaces",
+      "via": "include",
+      "file": "firmware/app/app.c",
+      "line": 5,
+      "symbol": "motor_io.h"
+    },
+    {
+      "from": "app",
+      "to": "modules_motor",
+      "via": "include",
+      "file": "firmware/app/app.c",
+      "line": 3,
+      "symbol": "motor_control.h"
+    },
+    {
+      "from": "app",
+      "to": "osal",
+      "via": "include",
+      "file": "firmware/app/app.c",
+      "line": 7,
+      "symbol": "osal.h"
+    },
+    {
+      "from": "app",
+      "to": "platforms_stm32",
+      "via": "include",
+      "file": "firmware/app/app.c",
+      "line": 4,
+      "symbol": "motor_hw.h"
+    },
+    {
+      "from": "bsp",
+      "to": "configs",
+      "via": "include",
+      "file": "firmware/bsp/board.h",
+      "line": 18,
+      "symbol": "app_config.h"
+    },
+    {
+      "from": "modules_foc",
+      "to": "configs",
+      "via": "include",
+      "file": "firmware/modules/foc/foc.c",
+      "line": 2,
+      "symbol": "app_config.h"
+    },
+    {
+      "from": "modules_motor",
+      "to": "configs",
+      "via": "include",
+      "file": "firmware/modules/motor/motor_control.c",
+      "line": 2,
+      "symbol": "app_config.h"
+    },
+    {
+      "from": "modules_motor",
+      "to": "interfaces",
+      "via": "include",
+      "file": "firmware/modules/motor/motor_control.c",
+      "line": 4,
+      "symbol": "motor_io.h"
+    },
+    {
+      "from": "modules_motor",
+      "to": "modules_foc",
+      "via": "include",
+      "file": "firmware/modules/motor/motor_control.c",
+      "line": 3,
+      "symbol": "foc.h"
+    },
+    {
+      "from": "platforms_stm32",
+      "to": "Core_Inc",
+      "via": "include",
+      "file": "firmware/platforms/stm32/motor_hw.c",
+      "line": 2,
+      "symbol": "main.h"
+    },
+    {
+      "from": "platforms_stm32",
+      "to": "configs",
+      "via": "include",
+      "file": "firmware/platforms/stm32/motor_hw.c",
+      "line": 5,
+      "symbol": "app_config.h"
+    },
+    {
+      "from": "platforms_stm32",
+      "to": "interfaces",
+      "via": "include",
+      "file": "firmware/platforms/stm32/motor_hw.h",
+      "line": 6,
+      "symbol": "motor_io.h"
+    },
+    {
+      "from": "platforms_stm32",
+      "to": "osal",
+      "via": "include",
+      "file": "firmware/platforms/stm32/osal_stm32.c",
+      "line": 1,
+      "symbol": "osal.h"
+    }
+  ],
+  "task_flows": [],
+  "summary": {
+    "headline": "Resolved application task entry points and connected console UART traffic to its runtime tasks.",
+    "node_count": 0,
+    "edge_count": 0,
+    "warnings": []
+  },
+  "diagrams": {
+    "hld": {
+      "title": "High-Level Design",
+      "mermaid": "flowchart TD\n  subgraph MotorControl[\"Motor control hardware\"]\n    PA810[\"Three-phase PWM outputs<br/>PA8, PA9, PA10\"]\n    EnablePins[\"Bridge enable outputs<br/>PB13, PB14, PB15\"]\n    FaultPins[\"Fault inputs<br/>PA11 monitor, PB12 TIM1 break\"]\n    ButtonPin[\"User button input<br/>PC13\"]\n    LedPin[\"Status LED output<br/>PA5\"]\n    TIM1[\"PWM and sample trigger<br/>TIM1 CH1–CH4, TRGO2 OC4REF\"]\n    ADCs[\"Injected current sampling<br/>ADC1 channel 12, ADC2 channel 2\"]\n    MotorDriver[\"Motor driver interface<br/>P-NUCLEO-IHM03 kit configuration\"]\n  end\n  subgraph ConsoleIo[\"Console interface\"]\n    UART2[\"UART device<br/>USART2 TX PA2, RX PA3#59; 115200 baud\"]\n    Console[\"Console and UART logging<br/>commands, replies, telemetry\"]\n  end\n  subgraph Firmware[\"Firmware modules\"]\n    MotorHW[\"STM32 hardware adapter<br/>firmware/platforms/stm32/motor_hw.c\"]\n    MotorIO[\"Motor I/O interface<br/>firmware/interfaces/motor_io.c\"]\n    Control[\"Motor state machine and fast control<br/>firmware/modules/motor/motor_control.c\"]\n    FOC[\"FOC transforms and observer<br/>firmware/modules/foc/foc.c\"]\n    App[\"Application tasks<br/>firmware/app/app.c#59; FreeRTOS via OSAL\"]\n  end\n\n  MotorHW -->|HAL_TIM_PWM_Start#59; TIM1 CH1–CH3| PA810\n  MotorHW -->|HAL_GPIO_WritePin| EnablePins\n  FaultPins -->|HAL_GPIO_ReadPin#59; TIM1 break flag| MotorHW\n  ButtonPin -->|HAL_GPIO_ReadPin| MotorHW\n  MotorHW -->|HAL_GPIO_WritePin| LedPin\n  TIM1 -->|CH1–CH3 PWM| PA810\n  TIM1 -->|TRGO2 OC4REF| ADCs\n  ADCs -->|ADC1_2 IRQ#59; paired current samples| MotorHW\n  MotorDriver -->|fault and break signals| FaultPins\n  PA810 -->|three-phase PWM| MotorDriver\n  EnablePins -->|bridge enable| MotorDriver\n\n  MotorHW -->|motor_hw_bind_platform| MotorIO\n  MotorIO -->|sample callback and motor_io_t functions| Control\n  Control -->|foc_step and observer functions| FOC\n  Control -->|duty and bridge operations through motor_io_t| MotorIO\n  App -->|motor commands, snapshots, supervisor ticks| Control\n  App -->|button, LED, UART through motor_io_t| MotorIO\n  UART2 -->|HAL_UART_Receive_IT#59; HAL_UART_Transmit| MotorHW\n  MotorHW -->|UART byte RX and TX functions| MotorIO\n  Console -->|USART2 serial stream| UART2",
+      "authored_by_model": true,
+      "node_notes": {
+        "PA810": "Three-phase PWM outputs is a step in this firmware's runtime flow. The cite PA8, PA9, PA10 is the source evidence for it.",
+        "FOC": "FOC transforms and observer is a step in this firmware's runtime flow. The cite firmware/modules/foc/foc.c is the source evidence for it.",
+        "MotorIO": "Motor I/O interface is a step in this firmware's runtime flow. The cite firmware/interfaces/motor_io.c is the source evidence for it.",
+        "ButtonPin": "User button input is a step in this firmware's runtime flow. The cite PC13 is the source evidence for it.",
+        "App": "Application tasks is a step in this firmware's runtime flow. The cite firmware/app/app.c#59; FreeRTOS via OSAL is the source evidence for it.",
+        "TIM1": "PWM and sample trigger is a step in this firmware's runtime flow. The cite TIM1 CH1–CH4, TRGO2 OC4REF is the source evidence for it.",
+        "MotorDriver": "Motor driver interface is a step in this firmware's runtime flow. The cite P-NUCLEO-IHM03 kit configuration is the source evidence for it.",
+        "EnablePins": "Bridge enable outputs is a step in this firmware's runtime flow. The cite PB13, PB14, PB15 is the source evidence for it.",
+        "MotorHW": "STM32 hardware adapter is a step in this firmware's runtime flow. The cite firmware/platforms/stm32/motor_hw.c is the source evidence for it.",
+        "ADCs": "Injected current sampling is a step in this firmware's runtime flow. The cite ADC1 channel 12, ADC2 channel 2 is the source evidence for it.",
+        "FaultPins": "Fault inputs is a step in this firmware's runtime flow. The cite PA11 monitor, PB12 TIM1 break is the source evidence for it.",
+        "Console": "Console and UART logging is a step in this firmware's runtime flow. The cite commands, replies, telemetry is the source evidence for it.",
+        "UART2": "UART device is a step in this firmware's runtime flow. The cite USART2 TX PA2, RX PA3#59; 115200 baud is the source evidence for it.",
+        "Control": "Motor state machine and fast control is a step in this firmware's runtime flow. The cite firmware/modules/motor/motor_control.c is the source evidence for it.",
+        "LedPin": "Status LED output is a step in this firmware's runtime flow. The cite PA5 is the source evidence for it."
+      }
+    },
+    "lld": {
+      "title": "Low-Level Design (Firmware Workflow)",
+      "mermaid": "flowchart TD\n  Boot[\"Start application and create static queues and tasks<br/>firmware/app/app.c:250\"]\n  Boot -->    Bind[\"Bind STM32 motor I/O platform<br/>firmware/app/app.c:252\"]\n  Bind -->    StartTasks[\"Create supervisor, command, UI, telemetry, health, and TX tasks<br/>firmware/ap…\"]\n  StartTasks -->    S1\n  StartTasks -->    C1\n  StartTasks -->    U1\n  StartTasks -->    T1\n  StartTasks -->    H1\n  StartTasks -->    X1\n\n  subgraph SupervisorTask[\"Supervisor task\"]\n    S1[\"Bind hardware and initialize motor control<br/>firmware/app/app.c:94\"]\n    S1 -->    S2[\"Register fast-sample callback<br/>firmware/app/app.c:99\"]\n    S2 -->    S3[\"Wait until next 1 ms tick<br/>firmware/app/app.c:101\"]\n    S3 -->    S4[\"Run motor supervisor state transition tick<br/>firmware/app/app.c:102\"]\n    S4 -->|1 ms| S3\n  end\n\n  subgraph FastSampleISR[\"ADC sample interrupt\"]\n    I1[\"Handle ADC1 and ADC2 interrupt<br/>Core/Src/stm32g4xx_it.c:139\"]\n    I1 -->    I2[\"Deliver paired sample through motor I/O callback<br/>firmware/interfaces/motor_…\"]\n    I2 -->    I3[\"Validate samples and run fast motor control<br/>firmware/modules/motor/motor_co…\"]\n    I3 -->    I4{\"Sample valid and no latched fault — firmware/modules/motor/motor_control.c:200\"}\n    I4 -->|valid| I5[\"Run FOC calculation and update PWM duties<br/>firmware/modules/foc/foc.c:130\"]\n    I4 -->|invalid or fault| I6[\"Record fault or disable bridge<br/>firmware/modules/motor/motor_control.c:200\"]\n    I5 -->    I7[\"Write coherent TIM1 compare values<br/>firmware/platforms/stm32/motor_hw.c:190\"]\n  end\n\n  subgraph CommandTask[\"Command task\"]\n    C1[\"Poll buffered UART RX bytes and assemble a line<br/>firmware/app/app.c:108\"]\n    C1 -->    C2{\"Complete line parses as a command — firmware/app/app.c:55\"}\n    C2 -->|yes| C3[\"Queue command for handling<br/>firmware/app/app.c:124\"]\n    C2 -->|no| C4[\"Queue malformed-command reply<br/>firmware/app/app.c:127\"]\n    C3 -->    C5[\"Apply command and queue status reply<br/>firmware/app/app.c:130\"]\n    C4 -->    C6[\"Delay when no command work is available<br/>firmware/app/app.c:160\"]\n    C5 -->    C6\n    C6 -->    C1\n  end\n\n  subgraph UITask[\"UI task\"]\n    U1[\"Wait for UI period and read debounced button input<br/>firmware/app/app.c:165\"]\n    U1 -->    U2{\"Button state changed after debounce — firmware/app/app.c:172\"}\n    U2 -->|released| U3[\"Clear fault, start from idle, or request stop<br/>firmware/app/app.c:175\"]\n    U2 -->|no action| U4[\"Read motor snapshot and select LED indication<br/>firmware/app/app.c:183\"]\n    U3 -->    U4\n    U4 -->    U5[\"Write status LED state<br/>firmware/app/app.c:190\"]\n    U5 -->|20 ms| U1\n  end\n\n  subgraph TelemetryTask[\"Telemetry task\"]\n    T1[\"Wait for telemetry period and read motor snapshot<br/>firmware/app/app.c:192\"]\n    T1 -->    T2[\"Format and enqueue CSV telemetry<br/>firmware/app/app.c:197\"]\n    T2 -->    T3{\"Motor idle and potentiometer source is available — firmware/app/app.c:219\"}\n    T3 -->|yes| T4[\"Read potentiometer and update idle speed request<br/>firmware/app/app.c:220\"]\n    T3 -->|no| T5[\"Wait for next telemetry interval<br/>firmware/app/app.c:192\"]\n    T4 -->    T5\n    T5 -->|100 ms| T1\n  end\n\n  subgraph HealthTask[\"Health task\"]\n    H1[\"Wait for health period and read motor snapshot<br/>firmware/app/app.c:231\"]\n    H1 -->    H2{\"Motor state is fault — firmware/app/app.c:234\"}\n    H2 -->|yes| H3[\"Disable bridge while fault is active<br/>firmware/app/app.c:234\"]\n    H2 -->|no| H4[\"Continue monitoring\"]\n    H3 -->|10 ms| H1\n    H4 -->|10 ms| H1\n  end\n\n  subgraph TxTask[\"UART transmit task\"]\n    X1[\"Prefer queued status reply over telemetry<br/>firmware/app/app.c:241\"]\n    X1 -->    X2{\"Message received and UART TX is available — firmware/app/app.c:243\"}\n    X2 -->|yes| X3[\"Transmit queued message through motor I/O<br/>firmware/app/app.c:243\"]\n    X2 -->|no| X1\n    X3 -->    X1\n  end",
+      "authored_by_model": true,
+      "node_notes": {
+        "S1": "Bind hardware and initialize motor control is a step in this firmware's runtime flow. The cite firmware/app/app.c:94 is the source evidence for it.",
+        "C5": "C5 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "I3": "I3 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "I2": "I2 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "X1": "Prefer queued status reply over telemetry is a step in this firmware's runtime flow. The cite firmware/app/app.c:241 is the source evidence for it.",
+        "C3": "C3 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "I5": "I5 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "Bind": "Bind is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "U5": "U5 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "S2": "S2 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "S3": "S3 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "C6": "C6 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "U1": "Wait for UI period and read debounced button input is a step in this firmware's runtime flow. The cite firmware/app/app.c:165 is the source evidence for it.",
+        "T2": "T2 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "StartTasks": "StartTasks is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "T3": "T3 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "C1": "Poll buffered UART RX bytes and assemble a line is a step in this firmware's runtime flow. The cite firmware/app/app.c:108 is the source evidence for it.",
+        "X3": "X3 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "H3": "H3 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "U2": "U2 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "X2": "X2 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "I4": "I4 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "S4": "S4 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "U4": "U4 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "T5": "T5 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "T1": "Wait for telemetry period and read motor snapshot is a step in this firmware's runtime flow. The cite firmware/app/app.c:192 is the source evidence for it.",
+        "H2": "H2 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "H1": "Wait for health period and read motor snapshot is a step in this firmware's runtime flow. The cite firmware/app/app.c:231 is the source evidence for it.",
+        "T4": "T4 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "Boot": "Start application and create static queues and tasks is a step in this firmware's runtime flow. The cite firmware/app/app.c:250 is the source evidence for it.",
+        "I1": "Handle ADC1 and ADC2 interrupt is a step in this firmware's runtime flow. The cite Core/Src/stm32g4xx_it.c:139 is the source evidence for it.",
+        "U3": "U3 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "C2": "C2 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "H4": "H4 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "C4": "C4 is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system."
+      }
+    },
+    "sequence": {
+      "title": "Sequence Diagram",
+      "mermaid": "sequenceDiagram\n  participant Boot\n  participant App as app_start\n  participant Supervisor\n  participant Control as motor_control\n  participant TIM1\n  participant ADC as ADC1 and ADC2\n  participant ISR as ADC interrupt and fast-sample callback\n  participant MotorHW as motor_hw\n  participant Console as USART2 console\n  participant Command as command task\n  participant UI as UI task\n  participant Telemetry as telemetry task\n  participant TX as TX task\n\n  Boot->>App: Create queues and FreeRTOS tasks\n  App->>Supervisor: Start supervisor task\n  Supervisor->>MotorHW: motor_hw_bind_platform\n  Supervisor->>Control: motor_control_init\n  Supervisor->>Control: Register fast sample callback\n  Supervisor->>TIM1: Start PWM and recurring sample trigger\n  TIM1->>ADC: TRGO2 OC4REF triggers injected conversions\n\n  par Fast current-control path\n    loop Each paired ADC sample at PWM rate\n      ADC->>ISR: ADC1_2 interrupt with conversion results\n      ISR->>Control: Deliver current sample callback\n      Control->>Control: Validate sample, update motor state and run FOC\n      alt Sample valid and fault-free\n        Control->>MotorHW: Update three PWM compare duties\n        MotorHW->>TIM1: Set TIM1 CH1–CH3 compare values\n      else Invalid sample or fault detected\n        Control->>MotorHW: Disable bridge outputs\n      end\n    end\n  and Console command path\n    loop While command task runs\n      Console->>MotorHW: USART2 RX interrupt supplies byte\n      MotorHW->>Command: uart_rx_pop byte\n      Command->>Command: Assemble and parse command line\n      alt Command is valid\n        Command->>Control: Apply start, stop, speed, direction, or source request\n        Command->>TX: Queue command reply\n      else Command is malformed\n        Command->>TX: Queue error reply\n      end\n    end\n  and UI path\n    loop Every 20 ms\n      UI->>MotorHW: Read PC13 button state\n      UI->>Control: On debounced release, clear fault, start, or stop\n      UI->>MotorHW: Write PA5 state indication\n    end\n  and Telemetry path\n    loop Every 100 ms\n      Telemetry->>Control: Read motor snapshot\n      Telemetry->>TX: Queue CSV telemetry\n      opt Motor idle with potentiometer input available\n        Telemetry->>MotorHW: Read potentiometer ADC value\n        Telemetry->>Control: Set source and requested speed when input is in range\n      end\n    end\n  and UART output path\n    loop As messages are queued\n      TX->>TX: Prefer status replies over telemetry\n      TX->>MotorHW: uart_tx message\n      MotorHW->>Console: HAL_UART_Transmit\n    end\n  end",
+      "participants": [
+        "Boot",
+        "App",
+        "Supervisor",
+        "Control",
+        "TIM1",
+        "ADC",
+        "ISR",
+        "MotorHW",
+        "Console",
+        "Command",
+        "UI",
+        "Telemetry",
+        "TX"
+      ],
+      "generated_from": [
+        "Core/Src/main.c",
+        "firmware/platforms/stm32/motor_hw.c"
+      ],
+      "grounding": 0.07692308,
+      "authored_by_model": true
+    },
+    "model_pass_expected": false
+  },
+  "change_log": [],
+  "unresolved": [
+    {
+      "kind": "gpio_task_links_unresolved",
+      "message": "The existing GPIO nodes have no evidenced pin-to-function mapping in the provided snippets; their task connections cannot be assigned safely."
+    },
+    {
+      "kind": "llm_node_rejected",
+      "message": "Rejected refine node supervisor_task (rtos_task) because it has no file-backed evidence",
+      "node_id": "supervisor_task",
+      "node_type": "rtos_task",
+      "strict_evidence": true
+    },
+    {
+      "kind": "llm_node_rejected",
+      "message": "Rejected refine node command_task (rtos_task) because it has no file-backed evidence",
+      "node_id": "command_task",
+      "node_type": "rtos_task",
+      "strict_evidence": true
+    },
+    {
+      "kind": "llm_node_rejected",
+      "message": "Rejected refine node ui_task (rtos_task) because it has no file-backed evidence",
+      "node_id": "ui_task",
+      "node_type": "rtos_task",
+      "strict_evidence": true
+    },
+    {
+      "kind": "llm_node_rejected",
+      "message": "Rejected refine node telemetry_task (rtos_task) because it has no file-backed evidence",
+      "node_id": "telemetry_task",
+      "node_type": "rtos_task",
+      "strict_evidence": true
+    },
+    {
+      "kind": "llm_node_rejected",
+      "message": "Rejected refine node health_task (rtos_task) because it has no file-backed evidence",
+      "node_id": "health_task",
+      "node_type": "rtos_task",
+      "strict_evidence": true
+    },
+    {
+      "kind": "llm_node_rejected",
+      "message": "Rejected refine node tx_task (rtos_task) because it has no file-backed evidence",
+      "node_id": "tx_task",
+      "node_type": "rtos_task",
+      "strict_evidence": true
+    },
+    {
+      "kind": "llm_edge_rejected",
+      "message": "Rejected refine edge boot_to_supervisor_task because source/target nodes are not evidence-backed",
+      "edge_id": "boot_to_supervisor_task",
+      "strict_evidence": true
+    },
+    {
+      "kind": "llm_edge_rejected",
+      "message": "Rejected refine edge boot_to_command_task because source/target nodes are not evidence-backed",
+      "edge_id": "boot_to_command_task",
+      "strict_evidence": true
+    },
+    {
+      "kind": "llm_edge_rejected",
+      "message": "Rejected refine edge boot_to_ui_task because source/target nodes are not evidence-backed",
+      "edge_id": "boot_to_ui_task",
+      "strict_evidence": true
+    },
+    {
+      "kind": "llm_edge_rejected",
+      "message": "Rejected refine edge boot_to_telemetry_task because source/target nodes are not evidence-backed",
+      "edge_id": "boot_to_telemetry_task",
+      "strict_evidence": true
+    },
+    {
+      "kind": "llm_edge_rejected",
+      "message": "Rejected refine edge boot_to_health_task because source/target nodes are not evidence-backed",
+      "edge_id": "boot_to_health_task",
+      "strict_evidence": true
+    },
+    {
+      "kind": "llm_edge_rejected",
+      "message": "Rejected refine edge boot_to_tx_task because source/target nodes are not evidence-backed",
+      "edge_id": "boot_to_tx_task",
+      "strict_evidence": true
+    },
+    {
+      "kind": "llm_edge_rejected",
+      "message": "Rejected refine edge usart2_to_command_task because source/target nodes are not evidence-backed",
+      "edge_id": "usart2_to_command_task",
+      "strict_evidence": true
+    },
+    {
+      "kind": "llm_edge_rejected",
+      "message": "Rejected refine edge tx_task_to_usart2 because source/target nodes are not evidence-backed",
+      "edge_id": "tx_task_to_usart2",
+      "strict_evidence": true
+    }
+  ],
+  "read_only": false,
+  "graph_version": 8,
+  "generation": {
+    "mode": "hybrid_refine",
+    "model": "local_openai_proxy/gpt-6-luna",
+    "triggered_by": "mount",
+    "analyzed_at_ms": 1791813963727,
+    "input_files": [
+      "CMakeLists.txt",
+      "Core/Inc/main.h",
+      "Core/Inc/stm32g4xx_hal_conf.h",
+      "Core/Inc/stm32g4xx_it.h",
+      "Core/Inc/stm32g4xx_nucleo_conf.h",
+      "Core/Src/main.c",
+      "Core/Src/stm32g4xx_hal_msp.c",
+      "Core/Src/stm32g4xx_it.c",
+      "Core/Src/system_stm32g4xx.c",
+      "firmware/app/app.c",
+      "firmware/app/app.h",
+      "firmware/bsp/board.c",
+      "firmware/bsp/board.h",
+      "firmware/configs/app_config.h",
+      "firmware/configs/build_config.h",
+      "firmware/configs/feature_config.h",
+      "firmware/configs/platform_config.h",
+      "firmware/interfaces/motor_io.c",
+      "firmware/interfaces/motor_io.h",
+      "firmware/modules/foc/foc.c",
+      "firmware/modules/foc/foc.h",
+      "firmware/modules/motor/motor_control.c",
+      "firmware/modules/motor/motor_control.h",
+      "firmware/osal/osal.h",
+      "firmware/platforms/stm32/motor_hw.c",
+      "firmware/platforms/stm32/motor_hw.h",
+      "firmware/platforms/stm32/osal_stm32.c",
+      "firmware/utils/helpers/helpers.c",
+      "firmware/utils/helpers/helpers.h",
+      "firmware/utils/logger/logger.c",
+      "firmware/utils/logger/logger.h"
+    ],
+    "token_usage": {
+      "prompt_tokens": 8813,
+      "completion_tokens": 3933
+    }
+  },
+  "sync_metadata": {
+    "project_file": "",
+    "content_hash": "",
+    "pending_patches": [],
+    "last_diff": {
+      "from_revision": "c6d2a775170c2c9bb70b9874e6e72448",
+      "to_revision": "c6d2a775170c2c9bb70b9874e6e72448",
+      "nodes_added": [],
+      "nodes_removed": [],
+      "nodes_changed": [],
+      "edges_added": [],
+      "edges_removed": [
+        "e_boot_init_gpio_pb12",
+        "e_boot_init_gpio_pc13",
+        "e_boot_init_gpio_pa11",
+        "e_boot_init_gpio_pb13",
+        "e_boot_init_gpio_pa5"
+      ]
+    }
+  },
+  "validation_state": {
+    "valid": true,
+    "error_count": 0,
+    "warning_count": 0,
+    "validated_at_ms": 1791813963727
+  }
+}

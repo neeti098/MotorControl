@@ -1,0 +1,282 @@
+{
+  "schema_version": "3.0.0",
+  "view": "wiring",
+  "revision": "c6d2a775170c2c9bb70b9874e6e72448",
+  "graph_version": 8,
+  "generated_at_ms": 1791813978313,
+  "graph": {
+    "schema_version": 1,
+    "id": "pir_sensorless_pmsm_foc",
+    "name": "sensorless_pmsm_foc topology",
+    "description": "Resolved application task entry points and connected console UART traffic to its runtime tasks.",
+    "board_id": "NUCLEO-G431RB",
+    "nodes": [
+      {
+        "id": "boot",
+        "node_type": "system_init",
+        "label": "Boot / app_main",
+        "description": "Bootstraps firmware startup and initializes core subsystems.",
+        "ports": [
+          {
+            "id": "boot_boot_out_0",
+            "name": "boot_out",
+            "direction": "output",
+            "datatype": "execution",
+            "required": true,
+            "multiplicity": "one"
+          }
+        ],
+        "properties": {
+          "target": "stm32"
+        },
+        "execution": {},
+        "visual": {
+          "x": 0.0,
+          "y": 282.0,
+          "layer": 0
+        }
+      },
+      {
+        "id": "gpio_output_pb13",
+        "node_type": "gpio_output",
+        "label": "PB13",
+        "description": "Drives a digital output signal.",
+        "ports": [
+          {
+            "id": "gpio_output_pb13_exec_in_0",
+            "name": "exec_in",
+            "direction": "input",
+            "datatype": "execution",
+            "required": true,
+            "multiplicity": "one"
+          },
+          {
+            "id": "gpio_output_pb13_gpio_in_1",
+            "name": "gpio_in",
+            "direction": "input",
+            "datatype": "gpio_level",
+            "required": false,
+            "multiplicity": "one"
+          }
+        ],
+        "properties": {
+          "pin": "PB13"
+        },
+        "execution": {},
+        "visual": {
+          "x": 188.0,
+          "y": 187.0,
+          "layer": 1
+        }
+      },
+      {
+        "id": "gpio_output_pa5",
+        "node_type": "gpio_output",
+        "label": "PA5",
+        "description": "Drives a digital output signal.",
+        "ports": [
+          {
+            "id": "gpio_output_pa5_exec_in_0",
+            "name": "exec_in",
+            "direction": "input",
+            "datatype": "execution",
+            "required": true,
+            "multiplicity": "one"
+          },
+          {
+            "id": "gpio_output_pa5_gpio_in_1",
+            "name": "gpio_in",
+            "direction": "input",
+            "datatype": "gpio_level",
+            "required": false,
+            "multiplicity": "one"
+          }
+        ],
+        "properties": {
+          "pin": "PA5"
+        },
+        "execution": {},
+        "visual": {
+          "x": 140.0,
+          "y": 564.0,
+          "layer": 1
+        }
+      },
+      {
+        "id": "gpio_input_pa11",
+        "node_type": "gpio_input",
+        "label": "PA11",
+        "description": "Reads a digital input signal.",
+        "ports": [
+          {
+            "id": "gpio_input_pa11_exec_in_0",
+            "name": "exec_in",
+            "direction": "input",
+            "datatype": "execution",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "gpio_input_pa11_gpio_out_1",
+            "name": "gpio_out",
+            "direction": "output",
+            "datatype": "gpio_level",
+            "required": true,
+            "multiplicity": "one"
+          }
+        ],
+        "properties": {
+          "pin": "PA11"
+        },
+        "execution": {},
+        "visual": {
+          "x": 140.0,
+          "y": 0.0,
+          "layer": 1
+        }
+      },
+      {
+        "id": "gpio_input_pb12",
+        "node_type": "gpio_input",
+        "label": "PB12",
+        "description": "Reads a digital input signal.",
+        "ports": [
+          {
+            "id": "gpio_input_pb12_exec_in_0",
+            "name": "exec_in",
+            "direction": "input",
+            "datatype": "execution",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "gpio_input_pb12_gpio_out_1",
+            "name": "gpio_out",
+            "direction": "output",
+            "datatype": "gpio_level",
+            "required": true,
+            "multiplicity": "one"
+          }
+        ],
+        "properties": {
+          "pin": "PB12"
+        },
+        "execution": {},
+        "visual": {
+          "x": 140.0,
+          "y": 188.0,
+          "layer": 1
+        }
+      },
+      {
+        "id": "gpio_input_pc13",
+        "node_type": "gpio_input",
+        "label": "PC13",
+        "description": "Reads a digital input signal.",
+        "ports": [
+          {
+            "id": "gpio_input_pc13_exec_in_0",
+            "name": "exec_in",
+            "direction": "input",
+            "datatype": "execution",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "gpio_input_pc13_gpio_out_1",
+            "name": "gpio_out",
+            "direction": "output",
+            "datatype": "gpio_level",
+            "required": true,
+            "multiplicity": "one"
+          }
+        ],
+        "properties": {
+          "pin": "PC13"
+        },
+        "execution": {},
+        "visual": {
+          "x": 140.0,
+          "y": 376.0,
+          "layer": 1
+        }
+      },
+      {
+        "id": "uart_device_usart2",
+        "node_type": "uart_device",
+        "label": "USART2",
+        "description": "Represents a UART peripheral with mapped serial pins.",
+        "ports": [
+          {
+            "id": "uart_device_usart2_exec_in_0",
+            "name": "exec_in",
+            "direction": "input",
+            "datatype": "execution",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "uart_device_usart2_data_in_1",
+            "name": "data_in",
+            "direction": "input",
+            "datatype": "signal",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "uart_device_usart2_data_out_2",
+            "name": "data_out",
+            "direction": "output",
+            "datatype": "signal",
+            "required": false,
+            "multiplicity": "one"
+          }
+        ],
+        "properties": {
+          "port": 1,
+          "baud_rate": 115200
+        },
+        "execution": {},
+        "visual": {
+          "x": 188.0,
+          "y": 375.0,
+          "layer": 1
+        }
+      }
+    ],
+    "connections": [
+      [
+        "boot_boot_out_0",
+        "uart_device_usart2_exec_in_0"
+      ],
+      [
+        "boot_boot_out_0",
+        "gpio_output_pb13_gpio_in_1"
+      ],
+      [
+        "boot_boot_out_0",
+        "gpio_output_pa5_gpio_in_1"
+      ],
+      [
+        "boot_boot_out_0",
+        "gpio_input_pa11_exec_in_0"
+      ],
+      [
+        "boot_boot_out_0",
+        "gpio_input_pb12_exec_in_0"
+      ],
+      [
+        "boot_boot_out_0",
+        "gpio_input_pc13_exec_in_0"
+      ]
+    ],
+    "layout": {
+      "orientation": "",
+      "node_width": 0.0,
+      "layer_gap": 0.0,
+      "node_gap": 0.0
+    }
+  },
+  "title": "Wiring Topology",
+  "authored_by_model": false
+}

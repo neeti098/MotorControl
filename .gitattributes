@@ -1,0 +1,11 @@
+# Normalise line endings so a Windows and a macOS checkout produce identical diffs.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.bin binary
+*.elf binary
+*.hex binary

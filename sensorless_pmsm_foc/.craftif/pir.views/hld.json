@@ -1,0 +1,27 @@
+{
+  "schema_version": "3.0.0",
+  "view": "hld",
+  "revision": "c6d2a775170c2c9bb70b9874e6e72448",
+  "graph_version": 8,
+  "generated_at_ms": 1791813978314,
+  "mermaid": "flowchart TD\n  subgraph MotorControl[\"Motor control hardware\"]\n    PA810[\"Three-phase PWM outputs<br/>PA8, PA9, PA10\"]\n    EnablePins[\"Bridge enable outputs<br/>PB13, PB14, PB15\"]\n    FaultPins[\"Fault inputs<br/>PA11 monitor, PB12 TIM1 break\"]\n    ButtonPin[\"User button input<br/>PC13\"]\n    LedPin[\"Status LED output<br/>PA5\"]\n    TIM1[\"PWM and sample trigger<br/>TIM1 CH1–CH4, TRGO2 OC4REF\"]\n    ADCs[\"Injected current sampling<br/>ADC1 channel 12, ADC2 channel 2\"]\n    MotorDriver[\"Motor driver interface<br/>P-NUCLEO-IHM03 kit configuration\"]\n  end\n  subgraph ConsoleIo[\"Console interface\"]\n    UART2[\"UART device<br/>USART2 TX PA2, RX PA3#59; 115200 baud\"]\n    Console[\"Console and UART logging<br/>commands, replies, telemetry\"]\n  end\n  subgraph Firmware[\"Firmware modules\"]\n    MotorHW[\"STM32 hardware adapter<br/>firmware/platforms/stm32/motor_hw.c\"]\n    MotorIO[\"Motor I/O interface<br/>firmware/interfaces/motor_io.c\"]\n    Control[\"Motor state machine and fast control<br/>firmware/modules/motor/motor_control.c\"]\n    FOC[\"FOC transforms and observer<br/>firmware/modules/foc/foc.c\"]\n    App[\"Application tasks<br/>firmware/app/app.c#59; FreeRTOS via OSAL\"]\n  end\n\n  MotorHW -->|HAL_TIM_PWM_Start#59; TIM1 CH1–CH3| PA810\n  MotorHW -->|HAL_GPIO_WritePin| EnablePins\n  FaultPins -->|HAL_GPIO_ReadPin#59; TIM1 break flag| MotorHW\n  ButtonPin -->|HAL_GPIO_ReadPin| MotorHW\n  MotorHW -->|HAL_GPIO_WritePin| LedPin\n  TIM1 -->|CH1–CH3 PWM| PA810\n  TIM1 -->|TRGO2 OC4REF| ADCs\n  ADCs -->|ADC1_2 IRQ#59; paired current samples| MotorHW\n  MotorDriver -->|fault and break signals| FaultPins\n  PA810 -->|three-phase PWM| MotorDriver\n  EnablePins -->|bridge enable| MotorDriver\n\n  MotorHW -->|motor_hw_bind_platform| MotorIO\n  MotorIO -->|sample callback and motor_io_t functions| Control\n  Control -->|foc_step and observer functions| FOC\n  Control -->|duty and bridge operations through motor_io_t| MotorIO\n  App -->|motor commands, snapshots, supervisor ticks| Control\n  App -->|button, LED, UART through motor_io_t| MotorIO\n  UART2 -->|HAL_UART_Receive_IT#59; HAL_UART_Transmit| MotorHW\n  MotorHW -->|UART byte RX and TX functions| MotorIO\n  Console -->|USART2 serial stream| UART2",
+  "title": "High-Level Design",
+  "node_notes": {
+    "PA810": "Three-phase PWM outputs is a step in this firmware's runtime flow. The cite PA8, PA9, PA10 is the source evidence for it.",
+    "FOC": "FOC transforms and observer is a step in this firmware's runtime flow. The cite firmware/modules/foc/foc.c is the source evidence for it.",
+    "MotorIO": "Motor I/O interface is a step in this firmware's runtime flow. The cite firmware/interfaces/motor_io.c is the source evidence for it.",
+    "ButtonPin": "User button input is a step in this firmware's runtime flow. The cite PC13 is the source evidence for it.",
+    "App": "Application tasks is a step in this firmware's runtime flow. The cite firmware/app/app.c#59; FreeRTOS via OSAL is the source evidence for it.",
+    "TIM1": "PWM and sample trigger is a step in this firmware's runtime flow. The cite TIM1 CH1–CH4, TRGO2 OC4REF is the source evidence for it.",
+    "MotorDriver": "Motor driver interface is a step in this firmware's runtime flow. The cite P-NUCLEO-IHM03 kit configuration is the source evidence for it.",
+    "EnablePins": "Bridge enable outputs is a step in this firmware's runtime flow. The cite PB13, PB14, PB15 is the source evidence for it.",
+    "MotorHW": "STM32 hardware adapter is a step in this firmware's runtime flow. The cite firmware/platforms/stm32/motor_hw.c is the source evidence for it.",
+    "ADCs": "Injected current sampling is a step in this firmware's runtime flow. The cite ADC1 channel 12, ADC2 channel 2 is the source evidence for it.",
+    "FaultPins": "Fault inputs is a step in this firmware's runtime flow. The cite PA11 monitor, PB12 TIM1 break is the source evidence for it.",
+    "Console": "Console and UART logging is a step in this firmware's runtime flow. The cite commands, replies, telemetry is the source evidence for it.",
+    "UART2": "UART device is a step in this firmware's runtime flow. The cite USART2 TX PA2, RX PA3#59; 115200 baud is the source evidence for it.",
+    "Control": "Motor state machine and fast control is a step in this firmware's runtime flow. The cite firmware/modules/motor/motor_control.c is the source evidence for it.",
+    "LedPin": "Status LED output is a step in this firmware's runtime flow. The cite PA5 is the source evidence for it."
+  },
+  "authored_by_model": true
+}

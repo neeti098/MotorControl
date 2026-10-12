@@ -1,0 +1,5 @@
+{
+  "linker_script": {
+    "path": "STM32G431RBTX_FLASH.ld"
+  }
+}
